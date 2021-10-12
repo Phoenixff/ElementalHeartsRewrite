@@ -1,0 +1,3 @@
+displayName = Elemental Hearts
+author = Phoenixff
+version = 0.1
