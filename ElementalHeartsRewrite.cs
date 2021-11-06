@@ -56,6 +56,9 @@ namespace ElementalHeartsRewrite
             recipe.AddTile(TileID.WorkBenches);
             recipe.SetResult(ItemID.CandyCaneBlock, 20);
             recipe.AddRecipe();
+
+            //CheckThis: should we add a recipe for Coralstone? its only craftable in 1.4
+            
         }
     }
 }

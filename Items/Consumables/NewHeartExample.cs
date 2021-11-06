@@ -31,7 +31,9 @@ namespace ElementalHeartsRewrite.Items.Consumables {
                     //  TileID.[Tile Name]
                     CraftingTiles = {
 
-                    }
+                    },
+                    //Does this Recipe need water to work?
+                    NeedsWater = false
                 }
             }
         ) 

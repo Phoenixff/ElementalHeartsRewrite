@@ -78,6 +78,7 @@ namespace ElementalHeartsRewrite.Items.Consumables {
                     foreach (int craftingTile in craftingTiles) {
                         newRecipe.AddTile(craftingTile);
                     }
+                    newRecipe.needWater = recipe.NeedsWater;
                     newRecipe.SetResult(this, 1);
                     newRecipe.AddRecipe();
                 }
@@ -88,8 +89,10 @@ namespace ElementalHeartsRewrite.Items.Consumables {
     public class Recipe {
         private Dictionary<int, int> ingredients;
         private List<int> craftingTiles;
+        private bool needsWater = false;
 
         public List<int> CraftingTiles { get => this.craftingTiles; set => this.craftingTiles = value; }
         public Dictionary<int, int> Ingredients { get => this.ingredients; set => this.ingredients = value; }
+        public bool NeedsWater { get => this.needsWater; set => this.needsWater = value; }
     }
 }
