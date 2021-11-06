@@ -11,8 +11,7 @@ namespace ElementalHeartsRewrite.Items.Consumables {
         public string internalName;
         public int lifeBonus;
         public int rarity;
-        public Dictionary<int, int> ingredients;
-        public List<int> craftingTiles;
+        public List<Recipe> recipeList;
         public bool expert;
 
         /// <summary>
@@ -24,13 +23,12 @@ namespace ElementalHeartsRewrite.Items.Consumables {
         /// <param name="rarity">(ItemRarityID Useable here) Determines the color of the hearts name</param>
         /// <param name="ingredients">A dictionary of items (ItemID useable) and their amounts</param>
         /// <param name="craftingTiles">A list of tiles (TileID useable) required for crafting</param>
-        public BaseHeart(string name, string internalName, int lifeBonus, int rarity, Dictionary<int, int> ingredients, List<int> craftingTiles, bool expert = false) {
+        public BaseHeart(string name, string internalName, int lifeBonus, int rarity, List<Recipe> recipeList, bool expert = false) {
             this.name = name;
             this.internalName = internalName;
             this.lifeBonus = lifeBonus;
             this.rarity = rarity;
-            this.ingredients = ingredients;
-            this.craftingTiles = craftingTiles;
+            this.recipeList = recipeList;
             this.expert = expert;
         }
 
@@ -63,21 +61,35 @@ namespace ElementalHeartsRewrite.Items.Consumables {
         }
 
         //This Method is only really usefull if you want to add a single recipe
-        //I might have to figure out a way 
+        //I might have to figure out a way to allow more recipes at once
         public override void AddRecipes() {
-            bool hasItems = ingredients.AsEnumerable().Any();
-            bool hasTiles = craftingTiles.AsEnumerable().Any();
-            if (hasItems && hasTiles) {
-                ModRecipe recipe = new ModRecipe(mod);
-                foreach (KeyValuePair<int, int> ingredient in ingredients) {
-                    recipe.AddIngredient(ingredient.Key, ingredient.Value); //Key is the ID of the Item from the ItemID Enumerable, Value is the amount of required items
+            foreach (Recipe recipe in recipeList) {
+                Dictionary<int, int> ingredients = recipe.Ingredients;
+                List<int> craftingTiles = recipe.CraftingTiles;
+
+                bool hasItems = ingredients.AsEnumerable().Any();
+                bool hasTiles = craftingTiles.AsEnumerable().Any();
+
+                if (hasItems && hasTiles) {
+                    ModRecipe newRecipe = new ModRecipe(mod);
+                    foreach (KeyValuePair<int, int> ingredient in ingredients) {
+                        newRecipe.AddIngredient(ingredient.Key, ingredient.Value); //Key is the ID of the Item from the ItemID Enumerable, Value is the amount of required items
+                    }
+                    foreach (int craftingTile in craftingTiles) {
+                        newRecipe.AddTile(craftingTile);
+                    }
+                    newRecipe.SetResult(this, 1);
+                    newRecipe.AddRecipe();
                 }
-                foreach (int craftingTile in craftingTiles) {
-                    recipe.AddTile(craftingTile);
-                }
-                recipe.SetResult(this, 1);
-                recipe.AddRecipe();
             }
         }
+    }
+
+    public class Recipe {
+        private Dictionary<int, int> ingredients;
+        private List<int> craftingTiles;
+
+        public List<int> CraftingTiles { get => this.craftingTiles; set => this.craftingTiles = value; }
+        public Dictionary<int, int> Ingredients { get => this.ingredients; set => this.ingredients = value; }
     }
 }

@@ -16,15 +16,23 @@ namespace ElementalHeartsRewrite.Items.Consumables {
             rarity: ItemRarityID.White,
             //OPTIONAL: Is this an expert item?
             expert: false,
-            //All the crafting ingredients and their required amounts
-            //Format: (replace [bracktes] with the values you want and add commas after every line except the last one)
-            //  {ItemID.[Item name], [item amount]}
-            ingredients: new Dictionary<int, int>() {
-            },
-            //All the required workstations for crafting the heart
-            //Format: (replace [bracktes] with the values you want and remember to add commas after every line except the last one)
-            //TileID.[Tile Name]
-            craftingTiles: new List<int>() {
+            //A list of all Recipes
+            recipeList: new List<Recipe>() {
+                //Whenever you want to add a new seperate Recipe add another "new Recipe() {}" class instance and give it its ingredients and tiles
+                new Recipe() {
+                    //All the crafting ingredients and their required amounts
+                    //Format: (replace [bracktes] with the values you want and add commas after every line except the last one)
+                    //  {ItemID.[Item name], [item amount]}
+                    Ingredients = {
+
+                    },
+                    //All the required workstations for crafting the heart
+                    //Format: (replace [bracktes] with the values you want and remember to add commas after every line except the last one)
+                    //  TileID.[Tile Name]
+                    CraftingTiles = {
+
+                    }
+                }
             }
         ) 
         //No need to add anything in here

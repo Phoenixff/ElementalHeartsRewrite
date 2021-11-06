@@ -47,7 +47,7 @@ namespace ElementalHeartsRewrite
             ModRecipe recipe;
 
             //Candy Cane Blocks for the Candy Cane Heart
-            //TODO: Put a better recipe for Candy Canes here
+            //TODO: Put a better recipe for Candy Canes here (Maybe ice or snow combined with dyes?)
             recipe = new ModRecipe(this);
             recipe.AddIngredient(ItemID.Pumpkin, 5);
             recipe.AddIngredient(ItemID.Cactus, 5);
@@ -59,3 +59,24 @@ namespace ElementalHeartsRewrite
         }
     }
 }
+
+//TODO: (Optional) Add these Tasks to your Visual Studio
+/*
+ * You can add tasks under Tools -> Options -> Environment -> Task List 
+ * (dont add the - in front of their name. im just using that here so the definitions dont show up in the task list)
+ * 
+ * (When adding a Task that you want feedback on add your discord name as well so we can come back to you about it)
+ * 
+ * -CheckThis
+ * Use this if youre not sure about what you added and want someone elses opinion on it
+ * 
+ * -Suggestion
+ * Use this if you want to suggest a way to do something better
+ * 
+ * -Bug
+ * Use this for known bugs that you dont know how to fix yourself
+ * 
+ * -TestThis
+ * Use this for things that you think might cause bugs or after fixing a bug
+ * 
+*/
