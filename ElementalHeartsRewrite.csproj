@@ -15,7 +15,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Effects\" />
-    <Folder Include="Items\Consumables\Vanilla\HM\" />
     <Folder Include="Tiles\" />
     <Folder Include="Sounds\" />
     <Folder Include="Projectiles\" />

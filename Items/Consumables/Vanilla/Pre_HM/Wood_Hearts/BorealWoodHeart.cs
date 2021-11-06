@@ -3,7 +3,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using System.Collections.Generic;
 
-namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.Pre_HM {
+namespace ElementalHeartsRewrite.Items.Consumables {
     class BorealWoodHeart : BaseHeart {
         public BorealWoodHeart() : base(
             name: "Boreal Wood Heart",

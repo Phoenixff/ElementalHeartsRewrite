@@ -2,6 +2,7 @@
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using System.Linq;
 
 namespace ElementalHeartsRewrite.Items.Consumables {
     public class BaseHeart : ModItem {
@@ -12,6 +13,7 @@ namespace ElementalHeartsRewrite.Items.Consumables {
         public int rarity;
         public Dictionary<int, int> ingredients;
         public List<int> craftingTiles;
+        public bool expert;
 
         /// <summary>
         /// 
@@ -22,13 +24,14 @@ namespace ElementalHeartsRewrite.Items.Consumables {
         /// <param name="rarity">(ItemRarityID Useable here) Determines the color of the hearts name</param>
         /// <param name="ingredients">A dictionary of items (ItemID useable) and their amounts</param>
         /// <param name="craftingTiles">A list of tiles (TileID useable) required for crafting</param>
-        public BaseHeart(string name, string internalName, int lifeBonus, int rarity, Dictionary<int, int> ingredients, List<int> craftingTiles) {
+        public BaseHeart(string name, string internalName, int lifeBonus, int rarity, Dictionary<int, int> ingredients, List<int> craftingTiles, bool expert = false) {
             this.name = name;
             this.internalName = internalName;
             this.lifeBonus = lifeBonus;
             this.rarity = rarity;
             this.ingredients = ingredients;
             this.craftingTiles = craftingTiles;
+            this.expert = expert;
         }
 
         public override void SetStaticDefaults() {
@@ -40,6 +43,7 @@ namespace ElementalHeartsRewrite.Items.Consumables {
             item.CloneDefaults(ItemID.LifeFruit);
             item.rare = rarity;
             item.value = 0;
+            item.expert = expert;
         }
 
         public override bool CanUseItem(Player player) {
@@ -58,16 +62,22 @@ namespace ElementalHeartsRewrite.Items.Consumables {
             return true;
         }
 
+        //This Method is only really usefull if you want to add a single recipe
+        //I might have to figure out a way 
         public override void AddRecipes() {
-            ModRecipe recipe = new ModRecipe(mod);
-            foreach (KeyValuePair<int, int> ingredient in ingredients) {
-                recipe.AddIngredient(ingredient.Key, ingredient.Value); //Key is the ID of the Item from the ItemID Enumerable, Value is the amount of required items
+            bool hasItems = ingredients.AsEnumerable().Any();
+            bool hasTiles = craftingTiles.AsEnumerable().Any();
+            if (hasItems && hasTiles) {
+                ModRecipe recipe = new ModRecipe(mod);
+                foreach (KeyValuePair<int, int> ingredient in ingredients) {
+                    recipe.AddIngredient(ingredient.Key, ingredient.Value); //Key is the ID of the Item from the ItemID Enumerable, Value is the amount of required items
+                }
+                foreach (int craftingTile in craftingTiles) {
+                    recipe.AddTile(craftingTile);
+                }
+                recipe.SetResult(this, 1);
+                recipe.AddRecipe();
             }
-            foreach (int craftingTile in craftingTiles) {
-                recipe.AddTile(craftingTile);
-            }
-            recipe.SetResult(this, 1);
-            recipe.AddRecipe();
         }
     }
 }

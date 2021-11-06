@@ -25,17 +25,23 @@ namespace ElementalHeartsRewrite {
         }
 
         public override void SyncPlayer(int toWho, int fromWho, bool newPlayer) {
+            int writeOperations = 0;
             ModPacket packet = mod.GetPacket();
-            packet.Write((byte)player.whoAmI);
-            packet.Write((byte)PacketType.SyncPlayer);
 
-            packet.WriteVarInt(usedHearts.Count); //sends the amount of hearts in the Dictionary to the server so it knows when it has to stop reading data as hearts
+            packet.Write((byte)PacketType.SyncPlayer);
+            writeOperations++;
+            packet.Write((byte)player.whoAmI);
+            writeOperations++;
+            packet.Write(usedHearts.Count); //sends the amount of hearts in the Dictionary to the server so it knows when it has to stop reading data as hearts
+            writeOperations++;
             foreach (KeyValuePair<string, int> usedHeart in usedHearts) {
                 packet.Write(usedHeart.Key);
-                packet.WriteVarInt(usedHeart.Value);
+                writeOperations++;
+                packet.Write(usedHeart.Value);
+                writeOperations++;
             }
-
             packet.Send(toWho, fromWho);
+            mod.Logger.Debug(writeOperations);
         }
 
         public override TagCompound Save() {
