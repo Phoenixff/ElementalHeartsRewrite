@@ -4,10 +4,10 @@ using Terraria.ID;
 using System.Collections.Generic;
 
 namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.PreHM.StoneHearts {
-    class CrimStoneHeart : BaseHeart {
-        public CrimStoneHeart() : base(
+    class CrimstoneHeart : BaseHeart {
+        public CrimstoneHeart() : base(
             name: "Crimstone Heart",
-            internalName: "crimStoneHeart",
+            internalName: "crimstoneHeart",
             lifeBonus: 1,
             rarity: ItemRarityID.White,
             recipeList: new List<Recipe>() {

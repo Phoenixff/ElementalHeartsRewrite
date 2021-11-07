@@ -3,21 +3,20 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using System.Collections.Generic;
 
-namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.PreHM.GemHearts {
-    class AmberHeart : BaseHeart {
-        public AmberHeart() : base(
-            name: "Amber Heart",
-            internalName: "amberHeart",
+namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.HM.MiscHearts {
+    class CursedFlameHeart : BaseHeart {
+        public CursedFlameHeart() : base(
+            name: "Cursed Flame Heart",
+            internalName: "cursedFlameHeart",
             lifeBonus: 5,
             rarity: ItemRarityID.LightRed,
             recipeList: new List<Recipe>() {
                 new Recipe() {
                     Ingredients = {
-                        {ItemID.Amber, 25},
-                        {ItemID.StoneBlock, 75}
+                        {ItemID.CursedFlame, 100}
                     },
                     CraftingTiles = {
-                        TileID.Extractinator
+                        TileID.CrystalBall
                     }
                 }
             }

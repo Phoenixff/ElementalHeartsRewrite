@@ -21,8 +21,8 @@ namespace ElementalHeartsRewrite.Items.Consumables {
         /// <param name="internalName">Name of the heart that will be used for saving or in dictionaries</param>
         /// <param name="lifeBonus">The amount of bonus HP granted by this heart</param>
         /// <param name="rarity">(ItemRarityID Useable here) Determines the color of the hearts name</param>
-        /// <param name="ingredients">A dictionary of items (ItemID useable) and their amounts</param>
-        /// <param name="craftingTiles">A list of tiles (TileID useable) required for crafting</param>
+        /// <param name="recipeList">A list of Recipes for crafting</param>
+        /// <param name="expert">Is the item an expert item?</param>
         public BaseHeart(string name, string internalName, int lifeBonus, int rarity, List<Recipe> recipeList, bool expert = false) {
             this.name = name;
             this.internalName = internalName;
@@ -45,7 +45,6 @@ namespace ElementalHeartsRewrite.Items.Consumables {
         }
 
         public override bool CanUseItem(Player player) {
-            mod.Logger.Info(this);
             return
                 !player.GetModPlayer<ElementalHeartsRewritePlayer>().usedHearts.ContainsKey(this.internalName);
         }
@@ -60,8 +59,6 @@ namespace ElementalHeartsRewrite.Items.Consumables {
             return true;
         }
 
-        //This Method is only really usefull if you want to add a single recipe
-        //I might have to figure out a way to allow more recipes at once
         public override void AddRecipes() {
             foreach (Recipe recipe in recipeList) {
                 Dictionary<int, int> ingredients = recipe.Ingredients;
@@ -87,12 +84,12 @@ namespace ElementalHeartsRewrite.Items.Consumables {
     }
 
     public class Recipe {
-        private Dictionary<int, int> ingredients;
-        private List<int> craftingTiles;
+        private Dictionary<int, int> ingredients = new Dictionary<int, int>();
+        private List<int> craftingTiles = new List<int>();
         private bool needsWater = false;
 
-        public List<int> CraftingTiles { get => this.craftingTiles; set => this.craftingTiles = value; }
         public Dictionary<int, int> Ingredients { get => this.ingredients; set => this.ingredients = value; }
+        public List<int> CraftingTiles { get => this.craftingTiles; set => this.craftingTiles = value; }
         public bool NeedsWater { get => this.needsWater; set => this.needsWater = value; }
     }
 }

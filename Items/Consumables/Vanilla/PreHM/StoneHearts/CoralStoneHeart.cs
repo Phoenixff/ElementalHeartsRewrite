@@ -4,10 +4,10 @@ using Terraria.ID;
 using System.Collections.Generic;
 
 namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.PreHM.StoneHearts {
-    class CoralStoneHeart : BaseHeart {
-        public CoralStoneHeart() : base(
+    class CoralstoneHeart : BaseHeart {
+        public CoralstoneHeart() : base(
             name: "Coralstone Heart",
-            internalName: "coralStoneHeart",
+            internalName: "coralstoneHeart",
             lifeBonus: 2,
             rarity: ItemRarityID.Blue,
             expert: false,
