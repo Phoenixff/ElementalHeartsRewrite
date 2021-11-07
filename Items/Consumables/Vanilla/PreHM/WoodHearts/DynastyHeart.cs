@@ -7,7 +7,6 @@ namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.PreHM.WoodHearts {
     class DynastyHeart : BaseHeart {
         public DynastyHeart() : base(
             name: "Dynasty Heart",
-            internalName: "dynastyHeart",
             lifeBonus: 1,
             rarity: ItemRarityID.White,
             recipeList: new List<Recipe>() {

@@ -7,6 +7,8 @@ namespace ElementalHeartsRewrite
 {
 	public class ElementalHeartsRewrite : Mod {
 
+
+
         internal enum PacketType : byte {
             SyncPlayer
         }

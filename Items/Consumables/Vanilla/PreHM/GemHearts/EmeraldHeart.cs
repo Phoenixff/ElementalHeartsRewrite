@@ -4,15 +4,16 @@ using Terraria.ID;
 using System.Collections.Generic;
 
 namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.PreHM.GemHearts {
-    class DiamondHeart : BaseHeart {
-        public DiamondHeart() : base(
-            name: "Diamond Heart",
-            lifeBonus: 5,
-            rarity: ItemRarityID.LightRed,
+    class EmeraldHeart : BaseHeart {
+
+        public EmeraldHeart() : base(
+        name: "Emerald Heart",
+            lifeBonus: 4,
+            rarity: ItemRarityID.Orange,
             recipeList: new List<Recipe>() {
                 new Recipe() {
                     Ingredients = {
-                        {ItemID.Diamond, 25},
+                        {ItemID.Emerald, 25},
                         {ItemID.StoneBlock, 75}
                     },
                     CraftingTiles = {

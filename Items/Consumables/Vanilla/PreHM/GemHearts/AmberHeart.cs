@@ -7,7 +7,6 @@ namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.PreHM.GemHearts {
     class AmberHeart : BaseHeart {
         public AmberHeart() : base(
             name: "Amber Heart",
-            internalName: "amberHeart",
             lifeBonus: 5,
             rarity: ItemRarityID.LightRed,
             recipeList: new List<Recipe>() {

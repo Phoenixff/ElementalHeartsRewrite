@@ -7,7 +7,6 @@ namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.PreHM.OreHearts {
     class CopperHeart : BaseHeart {
         public CopperHeart() : base(
             name: "Copper Heart",
-            internalName: "copperHeart",
             lifeBonus: 2,
             rarity: ItemRarityID.Blue,
             expert: false,

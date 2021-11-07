@@ -7,7 +7,6 @@ namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.PreHM.MiscHearts {
     class CloudHeart : BaseHeart {
         public CloudHeart() : base(
             name: "Cloud Heart",
-            internalName: "cloudHeart",
             lifeBonus: 1,
             rarity: ItemRarityID.White,
             expert: false,

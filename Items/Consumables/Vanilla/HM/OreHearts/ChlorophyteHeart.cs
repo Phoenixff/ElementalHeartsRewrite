@@ -7,7 +7,6 @@ namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.HM.OreHearts {
     class ChlorophyteHeart : BaseHeart {
         public ChlorophyteHeart() : base(
             name: "Chlorophyte Heart",
-            internalName: "chlorophyteHeart",
             lifeBonus: 8,
             rarity: ItemRarityID.Lime,
             expert: false,

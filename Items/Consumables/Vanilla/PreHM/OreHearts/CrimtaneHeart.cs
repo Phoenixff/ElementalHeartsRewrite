@@ -7,7 +7,6 @@ namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.PreHM.OreHearts {
     class CrimtaneHeart : BaseHeart {
         public CrimtaneHeart() : base(
             name: "Crimtane Heart",
-            internalName: "crimtaneHeart",
             lifeBonus: 4,
             rarity: ItemRarityID.Orange,
             recipeList: new List<Recipe>() {

@@ -7,7 +7,6 @@ namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.PreHM.DirtyHearts {
     class EbonsandHeart : BaseHeart {
         public EbonsandHeart() : base(
             name: "Ebonsand Heart",
-            internalName: "ebonsandHeart",
             lifeBonus: 1,
             rarity: ItemRarityID.White,
             recipeList: new List<Recipe>() {

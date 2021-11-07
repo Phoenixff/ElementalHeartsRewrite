@@ -7,7 +7,6 @@ namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.PreHM.MiscHearts {
     class CandyCaneHeart : BaseHeart {
         public CandyCaneHeart() : base(
             name: "Candy Cane Heart",
-            internalName: "candyCaneHeart",
             lifeBonus: 2,
             rarity: ItemRarityID.Blue,
             expert: false,

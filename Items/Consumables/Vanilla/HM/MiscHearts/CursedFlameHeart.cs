@@ -7,7 +7,6 @@ namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.HM.MiscHearts {
     class CursedFlameHeart : BaseHeart {
         public CursedFlameHeart() : base(
             name: "Cursed Flame Heart",
-            internalName: "cursedFlameHeart",
             lifeBonus: 5,
             rarity: ItemRarityID.LightRed,
             recipeList: new List<Recipe>() {

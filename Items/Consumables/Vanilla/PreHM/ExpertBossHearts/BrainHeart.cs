@@ -7,7 +7,6 @@ namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.PreHM.ExpertBossHeart
     class BrainHeart : BaseHeart {
         public BrainHeart() : base(
             name: "Brain Heart",
-            internalName: "brainHeart",
             lifeBonus: 5,
             rarity: ItemRarityID.Expert,
             expert: true,

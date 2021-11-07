@@ -7,7 +7,6 @@ namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.HM.MiscHearts {
     class CogHeart : BaseHeart {
         public CogHeart() : base(
             name: "Cog Heart",
-            internalName: "cogHeart",
             lifeBonus: 5,
             rarity: ItemRarityID.LightRed,
             expert: false,

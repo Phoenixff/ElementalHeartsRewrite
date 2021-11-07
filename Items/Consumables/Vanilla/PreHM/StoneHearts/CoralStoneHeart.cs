@@ -7,7 +7,6 @@ namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.PreHM.StoneHearts {
     class CoralstoneHeart : BaseHeart {
         public CoralstoneHeart() : base(
             name: "Coralstone Heart",
-            internalName: "coralstoneHeart",
             lifeBonus: 2,
             rarity: ItemRarityID.Blue,
             expert: false,
