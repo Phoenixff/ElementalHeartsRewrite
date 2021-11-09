@@ -3,7 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using System.Collections.Generic;
 
-namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.HM.MiscHearts {
+namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.HM.MaterialHearts {
     class CursedFlameHeart : BaseHeart {
         public CursedFlameHeart() : base(
             name: "Cursed Flame Heart",

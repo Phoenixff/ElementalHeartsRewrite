@@ -10,7 +10,7 @@ namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.PreHM.MiscHearts {
     class EmptyHeart : ModItem {
 
         public override void SetStaticDefaults() {
-            Tooltip.SetDefault("Resets all HP bonuses given by other hearts from this mod!");
+            Tooltip.SetDefault("Resets all HP bonuses given by other hearts from this mod!\nWill return all the used Hearts so prepare storage space for them!");
             DisplayName.SetDefault("Heart Emptier");
         }
 
@@ -21,18 +21,19 @@ namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.PreHM.MiscHearts {
         }
 
         public override bool UseItem(Player player) {
-
+            int takeHealth = 0;
             Dictionary<string, int> usedHearts = player.GetModPlayer<ElementalHeartsRewritePlayer>().usedHearts;
 
             foreach (KeyValuePair<string, int> heart in usedHearts) {
-                ModItem item = mod.GetItem(heart.Key);
-                item
+                ModItem heartItem = mod.GetItem(heart.Key);
+                takeHealth += ((BaseHeart)heartItem).lifeBonus;
+                player.QuickSpawnClonedItem(heartItem.item);
             }
 
+            player.statLife -= takeHealth;
             player.GetModPlayer<ElementalHeartsRewritePlayer>().usedHearts = new Dictionary<string, int>();
             Main.NewText("Cleared Elemental Heart stats!", Color.Orange);
 
-            player.statLifeMax2 = 0;
             return true;
         }
     }
