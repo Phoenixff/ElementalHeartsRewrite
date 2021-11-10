@@ -9,7 +9,6 @@ namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.HM.OreHearts {
             name: "Chlorophyte Heart",
             lifeBonus: 8,
             rarity: ItemRarityID.Lime,
-            expert: false,
             recipeList: new List<Recipe>() {
                 new Recipe() {
                     Ingredients = {

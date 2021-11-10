@@ -30,7 +30,6 @@ namespace ElementalHeartsRewrite.Items.Consumables {
             this.rarity = rarity;
             this.recipeList = recipeList;
             this.expert = expert;
-
         }
 
         public override void SetStaticDefaults() {
@@ -43,6 +42,7 @@ namespace ElementalHeartsRewrite.Items.Consumables {
             item.rare = rarity;
             item.value = 0;
             item.expert = expert;
+            item.maxStack = 1;
         }
 
         public override bool CanUseItem(Player player) {
