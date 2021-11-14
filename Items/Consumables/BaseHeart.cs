@@ -18,14 +18,13 @@ namespace ElementalHeartsRewrite.Items.Consumables {
         /// 
         /// </summary>
         /// <param name="name">Name of the heart that will be displayed to players</param>
-        /// <param name="internalName">Name of the heart that will be used for saving or in dictionaries</param>
         /// <param name="lifeBonus">The amount of bonus HP granted by this heart</param>
         /// <param name="rarity">(ItemRarityID Useable here) Determines the color of the hearts name</param>
         /// <param name="recipeList">A list of Recipes for crafting</param>
         /// <param name="expert">Is the item an expert item?</param>
         public BaseHeart(string name, int lifeBonus, int rarity, List<Recipe> recipeList, bool expert = false) {
             this.name = name;
-            this.internalName = this.GetType().Name; ;
+            this.internalName = this.GetType().Name;
             this.lifeBonus = lifeBonus;
             this.rarity = rarity;
             this.recipeList = recipeList;

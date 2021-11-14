@@ -3,19 +3,19 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using System.Collections.Generic;
 
-namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.PreHM.MiscHearts {
-    class HayHeart : BaseHeart {
-        public HayHeart() : base(
-            name: "Hay Heart",
-            lifeBonus: 1,
-            rarity: ItemRarityID.White,
+namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.PreHM.OreHearts {
+    class ObsidianHeart : BaseHeart {
+        public ObsidianHeart() : base(
+            name: "Obsidian Heart",
+            lifeBonus: 3,
+            rarity: ItemRarityID.Green,
             recipeList: new List<Recipe>() {
                 new Recipe() {
                     Ingredients = {
-                        {ItemID.Hay, 100}
+                        {ItemID.Obsidian, 100}
                     },
                     CraftingTiles = {
-                        TileID.Sawmill
+                        TileID.Hellforge
                     }
                 }
             }

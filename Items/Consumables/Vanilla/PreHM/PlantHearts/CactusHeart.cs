@@ -3,8 +3,7 @@ using Terraria.ModLoader;
 using Terraria.ID;
 using System.Collections.Generic;
 
-namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.PreHM.MiscHearts {
-    //CheckThis: should cactus hearts go in the Wood_Hearts folder? ~Phoenixff
+namespace ElementalHeartsRewrite.Items.Consumables.Vanilla.PreHM.PlantHearts {
     class CactusHeart : BaseHeart {
         public CactusHeart() : base(
             name: "Cactus Heart",
